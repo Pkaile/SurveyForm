@@ -1,0 +1,240 @@
+* {
+    font-family: roboto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --highlight: #fcbf49;
+    --form-width: -5rem;
+    --border-transform: -170%;
+    --text-transform: 0;
+    --push-form: 10%;
+    --color-change: black;
+    --width-change: 90%;
+}
+
+#title,
+#description {
+    padding-top: 2rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+body {
+    background: #000;
+}
+
+#survey-form {
+    position: relative;
+    background: #f1faee;
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.survey-form-glow.add {
+    position: relative;
+    background: #f1faee;
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.survey-form-glow.add::after,
+.survey-form-glow.add::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 0.5rem);
+    height: calc(100% + 0.5rem);
+    background: linear-gradient(45deg, #80ffdb, #56cfe1, #ffffff, #caffbf, #caffbf, #fca311);
+    background-size: 320%;
+    z-index: -1;
+    animation: animate 25s linear infinite;
+}
+
+.survey-form-glow.add::after {
+    filter: blur(35px);
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+    }
+
+    70% {
+        background-position: 500% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+
+input[type="radio"] {
+    -webkit-appearance: none;
+}
+
+p {
+    margin: 2rem;
+}
+
+textarea {
+    margin-left: 5%;
+    width: 80%;
+    height: auto;
+    margin-bottom: 1rem;
+
+}
+
+
+.form-container {
+    width: auto;
+    overflow: hidden;
+}
+
+.form-item {
+    margin: 2.7rem;
+    width: auto;
+    position: relative;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-item input {
+    background-color: transparent;
+    font-weight: bold;
+    width: var(--width-change);
+    outline: none;
+    border: none;
+    display: block;
+    margin-left: auto;
+}
+
+.container {
+    width: 100%;
+    margin-left: 3rem;
+}
+
+.container p {
+    margin-left: 0;
+}
+
+.label-item {
+
+    display: block;
+    width: var(--width-change);
+    height: 100%;
+    padding-bottom: 1.3rem;
+    position: absolute;
+    top: 0;
+    left: var(--push-form);
+    border-bottom: 2px solid var(--color-change);
+}
+
+.label-item::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-170%);
+    border-bottom: 3px solid var(--color-change);
+}
+
+#dropdown{
+    margin:1rem;
+    background-color: #000;
+    color:white;
+    padding:1.2rem;
+    outline: none;
+    border:none;
+    
+}
+
+.label-push {
+    font-size: 15px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: var(--form-width);
+    user-select: none;
+    pointer-events: none;
+    color: var(--color-change);
+}
+
+.form-item input:focus + .label-item .label-push,
+.form-item input:not(:placeholder-shown) + .label-item .label-push {
+    transform: translateY(var(--text-transform));
+
+    color: var(--color-change);
+    transition: 0.3s ease transform;
+
+}
+
+
+
+.form-item input:focus + .label-item::after,
+.form-item input:not(:placeholder-shown) + .label-item::after {
+    transform: translateX(var(--border-transform));
+    transition: 0s ease all;
+}
+
+.box {
+    margin: 0 auto;
+    padding: 1.5rem;
+    color: white;
+    background: black;
+}
+
+#submit {
+    width: 100%;
+    outline: none;
+    border: none;
+    margin: 0 auto;
+    padding: 1rem;
+    color: white;
+    background-color: #e63946;
+}
+
+
+input[type="radio"]:checked + .box,
+#submit:active {
+    background: white;
+    color: black;
+    background: var(--highlight);
+}
+
+.radio-container {
+    margin-bottom: 3rem;
+}
+.hide{
+    display:none;
+}
+
+@media only screen and (max-width: 600px) {
+    #survey-form {
+        width: 95%;
+    }
+
+    .form-item {
+        text-align: left;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .container {
+        margin: 0 auto;
+        text-align: center;
+    }
+}

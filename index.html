@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+</head>
+
+<body>
+
+    <form id="survey-form" class="survey-form-glow">
+        <h1 id="title">Survey Form</h1>
+        <p id="description"> How many CSS effects are too many for a simple survey form?</p>
+        <div class="form-container">
+            <div class="form-item">
+                <input type="text" name="name" id="name" placeholder=" " autocorrect="off" required />
+                <label id="name-label" for="name" class="label-item"><span class="label-push">Name:</span></label>
+            </div>
+            <div class="form-item">
+                <input type="email" name="email" id="email" placeholder=" " autocorrect="off" required />
+                <label id="email-label" for="email" class="label-item"><span class="label-push">Email:</span></label>
+            </div>
+            <div class="form-item">
+                <input type="number" name="number" id="number" placeholder=" " min="100" max="99999999" />
+                <label id="number-label" for="number" class="label-item"><span class="label-push">Number:</span></label>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <label for="dropdown">How many effects do you prefer per page?</label>
+            <select id="dropdown" onchange="selectEffects()">
+                <option value="0" selected>No Effects</option>
+                <option value="1">1 Effect</option>
+                <option value="2">2 Effects</option>
+                <option value="3">3+ Effects</option>
+            </select>
+            <div class="hide">
+                <input type="checkbox" value="box1">
+                <input type="checkbox" value="box2">
+                <input type="checkbox" value="box3">
+                <input type="checkbox" value="box4">
+                <input type="checkbox" value="box5">
+                <input type="checkbox" value="box6">
+            </div>
+            <div class="radio-container">
+                <p>Do you consider that ideal for every page?</p>
+                <input type="radio" value="yes" id="yes" name="option">
+                <label for="yes" class="box">Yes 👍</label>
+                <input type="radio" value="no" name="option" id="no">
+                <label for="no" class="box"> No 👎 </label>
+            </div>
+        </div>
+        <textarea placeholder="additional comments. (this form has no PHP though)" class="comment" name="" id="" cols="50" rows="10"></textarea>
+        <br />
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <script src="effect.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
